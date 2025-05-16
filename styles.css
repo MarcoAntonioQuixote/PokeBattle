@@ -1,0 +1,36 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.card {
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    border: solid white 2px;
+}
+
+.card img {
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+}
+
+.Normal     { background-color: #A8A77A; }
+.Fire       { background-color: #EE8130; }
+.Water      { background-color: #6390F0; }
+.Electric   { background-color: #F7D02C; color: #333; }
+.Grass      { background-color: #7AC74C; }
+.Ice        { background-color: #96D9D6; color: #333; }
+.Fighting   { background-color: #C22E28; }
+.Poison     { background-color: #A33EA1; }
+.Ground     { background-color: #E2BF65; color: #333; }
+.Flying     { background-color: #A98FF3; }
+.Psychic    { background-color: #F95587; }
+.Bug        { background-color: #A6B91A; }
+.Rock       { background-color: #B6A136; }
+.Ghost      { background-color: #735797; }
+.Dragon     { background-color: #6F35FC; }
+.Dark       { background-color: #705746; }
+.Steel      { background-color: #B7B7CE; color: #333; }
+.Fairy      { background-color: #D685AD; }
