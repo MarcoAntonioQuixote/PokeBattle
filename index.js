@@ -182,10 +182,6 @@ let allPokemon = [
 ]
 
 
-
-
-let electric = allPokemon.filter(pokemon => pokemon.types[0] === 'Electric')
-
 allPokemon.forEach(pokemon => {
     let name = document.createElement('div')
     let card = document.createElement('div')
@@ -197,23 +193,57 @@ allPokemon.forEach(pokemon => {
     document.body.append(card)
 })
 
-let newPoke = allPokemon.map(pokemon => {
-    pokemon.isAlive = true;
-    return pokemon
-})
 
-console.log(newPoke)
+const [p1,p2] = allPokemon;
 
-// const battle = (atk,def) => {
+const battle = (atk,def) => {
+
+  console.log('atk:', atk);
+  console.log('def:', def);
+
+  let pokemonMoves = '';
+
+  // for(let move of atk.moves) {
+  for (let move of atk.moves) {
+    pokemonMoves +=  move.name + '\n';
     
-//     let randomIndex = randomNum(0,atk.moves.length-1);
-//     let chosenMove = atk.moves[randomIndex]
+  }
 
-//     def.hp -= chosenMove.power;
+  let playerMove = prompt('What move do you want to make, human? Here are your choices. Type in the number of the move you want to make: ' + pokemonMoves);
+  
 
-//     console.log(`${atk.name} attacked  with ${chosenMove.name} for ${chosenMove.power} and now ${def.name} has ${def.hp} hp lef`)
+  
 
-// }
+  // {
+  //   name: "Alakazam",
+  //   types: ["Psychic"],
+  //   hp: 110,
+  //   image: "https://img.pokemondb.net/artwork/large/alakazam.jpg",
+  //   moves: [
+  //     { name: "Psychic", power: 90 },
+  //     { name: "Shadow Ball", power: 80 },
+  //     { name: "Recover", power: 0 },
+  //     { name: "Future Sight", power: 120 }
+  //   ]
+  // },
+
+  console.log(pokemonMoves);
+
+
+  
+
+  //ask your user which move they want to do
+    //tell your user the four moves (put that all in 1 string) = 
+    // when they seelet move 3 (index 2)
+    //now you will know what move from their moves array
+
+  //calculate damage from there
+
+  //after the atk atks, do the same exact thing with the defender if the defender is not dead
+
+}
+
+battle(p1,p2);
 
 
 
