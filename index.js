@@ -183,27 +183,6 @@ let allPokemon = [
 
 
 
-
-let electric = allPokemon.filter(pokemon => pokemon.types[0] === 'Electric')
-
-allPokemon.forEach(pokemon => {
-    let name = document.createElement('div')
-    let card = document.createElement('div')
-    let image = document.createElement('img')
-    name.innerText = pokemon.name;
-    card.setAttribute('class',`card ${pokemon.types[0]}`)
-    image.src = pokemon.image;
-    card.append(name,image)
-    document.body.append(card)
-})
-
-let newPoke = allPokemon.map(pokemon => {
-    pokemon.isAlive = true;
-    return pokemon
-})
-
-console.log(newPoke)
-
 // const battle = (atk,def) => {
     
 //     let randomIndex = randomNum(0,atk.moves.length-1);
@@ -222,7 +201,49 @@ console.log(newPoke)
 // battle(pokemonTeam[1],pokemonTeam[0])
 
 
-const chose2Fighters = (arr) => {
+let fighters = chose2Fighters(allPokemon)
+
+const drawCards = (fighters) => {
+    let arena = document.getElementById('arena')
+    let stands1 = document.getElementById('bystanders1')
+    let stands2 = document.getElementById('bystanders2')
+    for (let poke of fighters) {
+        if (poke.fighter) {
+            let name = document.createElement('h2')
+            let card = document.createElement('div')
+            let image = document.createElement('img')
+            name.innerText = poke.name;
+            card.setAttribute('class',`card ${poke.types[0]}`)
+            image.src = poke.image;
+            card.append(name,image)
+            arena.append(card)
+        } else {
+            let card = document.createElement('div')
+            let image = document.createElement('img')
+            card.setAttribute('class',`card bystander ${poke.types[0]}`)
+            image.src = poke.image;
+            let standNum = randomNum(1,2);
+            card.append(image)
+            let stands = standNum === 1 ? stands1 : stands2
+            stands.append(card)
+        }
+    }
+}
+
+drawCards(allPokemon)
+
+
+
+
+
+
+
+
+function randomNum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function chose2Fighters(arr) {
   let first = Math.floor(Math.random() * arr.length);
   let second;
   do {
@@ -239,38 +260,6 @@ const chose2Fighters = (arr) => {
         p.fighter = false
     }
   })
-  console.log(first,second)
+
+  return [first,second]
 }
-
-chose2Fighters(allPokemon)
-
-
-const drawCards = (fighters) => {
-    console.log(fighters)
-    let arena = document.getElementById('arena')
-    for (let poke of fighters) {
-        console.log(poke.fighter)
-        if (!poke.fighter) continue;
-        let name = document.createElement('h2')
-        let card = document.createElement('div')
-        let image = document.createElement('img')
-        name.innerText = poke.name;
-        card.setAttribute('class',`card ${poke.types[0]}`)
-        image.src = poke.image;
-        card.append(name,image)
-        arena.append(card)
-    }
-}
-
-drawCards(allPokemon)
-
-
-
-
-
-
-
-
-// function randomNum(min, max) {
-//     return Math.floor(Math.random() * (max - min + 1)) + min;
-// }

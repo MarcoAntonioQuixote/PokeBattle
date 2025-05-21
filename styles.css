@@ -21,20 +21,37 @@ body {
 
 #arena {
     border: solid white 2px;
-    width: 90vw;
+    width: 75vw;
     height: 40vh;
     margin: auto;
     border-radius: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-image: url(https://images.pexels.com/photos/413195/pexels-photo-413195.jpeg?auto=compress&cs=tinysrgb&w=800) ;
 }
 
-#bystanders {
-    background-color: #333;
-    height: 40vh;
-    position: fixed;
-    bottom: 100px;
+#bystanders1, #bystanders2 {
+    
+    height: 10vh;
+    width: 90vw;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bystander {
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bystander img {
+    height: 75px;
+    width: 75px;
 }
 
 .Normal     { background-color: #A8A77A; }
