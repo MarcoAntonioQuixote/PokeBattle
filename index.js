@@ -184,14 +184,25 @@ let allPokemon = [
 
 
 
-let waters = allPokemon.filter(p => p.types[0] === 'Water')
-
-console.log(waters)
+let electric = allPokemon.filter(pokemon => pokemon.types[0] === 'Electric')
 
 allPokemon.forEach(pokemon => {
-
-
+    let name = document.createElement('div')
+    let card = document.createElement('div')
+    let image = document.createElement('img')
+    name.innerText = pokemon.name;
+    card.setAttribute('class',`card ${pokemon.types[0]}`)
+    image.src = pokemon.image;
+    card.append(name,image)
+    document.body.append(card)
 })
+
+let newPoke = allPokemon.map(pokemon => {
+    pokemon.isAlive = true;
+    return pokemon
+})
+
+console.log(newPoke)
 
 // const battle = (atk,def) => {
     
