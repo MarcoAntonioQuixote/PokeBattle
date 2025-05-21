@@ -184,25 +184,14 @@ let allPokemon = [
 
 
 
-let electric = allPokemon.filter(pokemon => pokemon.types[0] === 'Electric')
+let waters = allPokemon.filter(p => p.types[0] === 'Water')
+
+console.log(waters)
 
 allPokemon.forEach(pokemon => {
-    let name = document.createElement('div')
-    let card = document.createElement('div')
-    let image = document.createElement('img')
-    name.innerText = pokemon.name;
-    card.setAttribute('class',`card ${pokemon.types[0]}`)
-    image.src = pokemon.image;
-    card.append(name,image)
-    document.body.append(card)
-})
 
-let newPoke = allPokemon.map(pokemon => {
-    pokemon.isAlive = true;
-    return pokemon
-})
 
-console.log(newPoke)
+})
 
 // const battle = (atk,def) => {
     
@@ -222,11 +211,47 @@ console.log(newPoke)
 // battle(pokemonTeam[1],pokemonTeam[0])
 
 
+const chose2Fighters = (arr) => {
+  let first = Math.floor(Math.random() * arr.length);
+  let second;
+  do {
+    second = Math.floor(Math.random() * arr.length);
+  } while (second === first);
+
+  first = arr[first]
+  second = arr[second]
+
+  arr.forEach(p => {
+    if (p.name === first.name || p.name === second.name) {
+        p.fighter = true;
+    } else {
+        p.fighter = false
+    }
+  })
+  console.log(first,second)
+}
+
+chose2Fighters(allPokemon)
 
 
+const drawCards = (fighters) => {
+    console.log(fighters)
+    let arena = document.getElementById('arena')
+    for (let poke of fighters) {
+        console.log(poke.fighter)
+        if (!poke.fighter) continue;
+        let name = document.createElement('h2')
+        let card = document.createElement('div')
+        let image = document.createElement('img')
+        name.innerText = poke.name;
+        card.setAttribute('class',`card ${poke.types[0]}`)
+        image.src = poke.image;
+        card.append(name,image)
+        arena.append(card)
+    }
+}
 
-
-
+drawCards(allPokemon)
 
 
 
